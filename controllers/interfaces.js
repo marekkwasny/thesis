@@ -1,3 +1,4 @@
+//Interfejs dla CommandService.
 export class ICommandService {
     constructor() {
         if (!this.createPost) {
@@ -14,6 +15,7 @@ export class ICommandService {
     }
 }
 
+//Interfejs dla QueryService.
 export class IQueryService {
     constructor() {
         if (!this.fetchPosts) {

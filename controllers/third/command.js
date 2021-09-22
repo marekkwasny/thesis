@@ -1,6 +1,7 @@
 import { ICommandService } from '../interfaces.js';
 import * as db from '../../db/index.js';
 
+//Implementacja CommandService dla trzeciego kroku CQRS.
 export class CommandService3 extends ICommandService {
     constructor() {
         super();

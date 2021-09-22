@@ -1,12 +1,13 @@
-import { useQuery } from "@apollo/client";
-import React from "react";
-import { client } from "../..";
-import { PostCreatorTwo } from "../../components/cqrs/PostCreator2";
-import { PostsDataTwo } from "../../components/cqrs/PostsData2";
-import { Header } from "../../components/Header";
-import { postsTwoQuery } from "../../graphql/post";
-import { meQuery } from "../../graphql/user";
+import { useQuery } from '@apollo/client';
+import React from 'react';
+import { client } from '../..';
+import { PostCreatorTwo } from '../../components/cqrs/PostCreator2';
+import { PostsDataTwo } from '../../components/cqrs/PostsData2';
+import { Header } from '../../components/Header';
+import { postsTwoQuery } from '../../graphql/post';
+import { meQuery } from '../../graphql/user';
 
+//Komponent definiujący widok CQRS 2.
 export function HomeTwo() {
     let user = null;
     const cache = client.readQuery({ query: meQuery });
@@ -29,7 +30,7 @@ export function HomeTwo() {
             limit: 10,
             cursor: 0,
         },
-        fetchPolicy: "network-only",
+        fetchPolicy: 'network-only',
     });
 
     return (

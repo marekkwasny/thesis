@@ -1,6 +1,7 @@
 import { IQueryService } from '../interfaces.js';
 import * as db from '../../db/index.js';
 
+//Implementacja QueryService dla drugiego kroku CQRS.
 export class QueryService2 extends IQueryService {
     constructor() {
         super();

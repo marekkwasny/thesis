@@ -3,6 +3,7 @@ import { Waypoint } from 'react-waypoint';
 import { List } from '@material-ui/core';
 import { PostTwo } from './Post2';
 
+//Komponent wczytujący posty dla widoku CQRS 2.
 export const PostsDataTwo = ({ user, loading, data, fetchMore }) => {
     if (loading) return <div></div>;
 
@@ -21,7 +22,11 @@ export const PostsDataTwo = ({ user, loading, data, fetchMore }) => {
                                         variables: {
                                             user: user,
                                             limit: 5,
-                                            cursor: parseInt(data.postsTwo.posts[data.postsTwo.posts.length - 1].id),
+                                            cursor: parseInt(
+                                                data.postsTwo.posts[
+                                                    data.postsTwo.posts.length - 1
+                                                ].id
+                                            ),
                                         },
                                         updateQuery: (pv, { fetchMoreResult }) => {
                                             if (!fetchMoreResult) {
@@ -31,8 +36,12 @@ export const PostsDataTwo = ({ user, loading, data, fetchMore }) => {
                                             return {
                                                 postsTwo: {
                                                     __typename: 'PostsType',
-                                                    hasMore: fetchMoreResult.postsTwo.hasMore,
-                                                    posts: [...pv.postsTwo.posts, ...fetchMoreResult.postsTwo.posts],
+                                                    hasMore:
+                                                        fetchMoreResult.postsTwo.hasMore,
+                                                    posts: [
+                                                        ...pv.postsTwo.posts,
+                                                        ...fetchMoreResult.postsTwo.posts,
+                                                    ],
                                                 },
                                             };
                                         },

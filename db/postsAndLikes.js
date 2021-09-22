@@ -1,20 +1,24 @@
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja zapisująca treść dla trzeciego kroku CQRS.
 export async function createPostDenormalized(pool, userId, userName, content) {
     const postsAndLikes = new PostsAndLikesRepository(pool);
     return await postsAndLikes.create(userId, userName, content);
 }
 
+//Funkcja zwracająca treści dla trzeciego kroku CQRS.
 export async function fetchPostsDenormalized(pool, userId) {
     const postsAndLikes = new PostsAndLikesRepository(pool);
     return await postsAndLikes.fetch(userId);
 }
 
+//Funkcja zapisująca polubienie dla trzeciego kroku CQRS.
 export async function likePostDenormalized(pool, userId, postId) {
     const postsAndLikes = new PostsAndLikesRepository(pool);
     return await postsAndLikes.like(userId, postId);
 }
 
+//Funkcja wycofująca polubienie dla trzeciego kroku CQRS.
 export async function unlikePostDenormalized(pool, userId, postId) {
     const postsAndLikes = new PostsAndLikesRepository(pool);
     return await postsAndLikes.unlike(userId, postId);

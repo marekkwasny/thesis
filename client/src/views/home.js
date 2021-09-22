@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { client } from '..';
 import { Header } from '../components/Header';
 import { PostCreator } from '../components/PostCreator';
@@ -8,9 +7,8 @@ import { PostsData } from '../components/PostsData';
 import { postsQuery } from '../graphql/post';
 import { meQuery } from '../graphql/user';
 
+//Komponent definiujący widok Home.
 export function Home() {
-    const [state, setState] = useState(0);
-
     let user = null;
     const cache = client.readQuery({ query: meQuery });
 
@@ -43,7 +41,12 @@ export function Home() {
             <br />
             <div>
                 <PostCreator user={user} refetch={refetch} />
-                <PostsData user={user} loading={loading} data={data} fetchMore={fetchMore} />
+                <PostsData
+                    user={user}
+                    loading={loading}
+                    data={data}
+                    fetchMore={fetchMore}
+                />
             </div>
         </div>
     );

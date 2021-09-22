@@ -12,6 +12,7 @@ import {
 import { createPost, createPost1, createPost2, createPost3 } from './post.js';
 import { createUser, loginUser, logoutUser, logoutUserFromAllSessions } from './user.js';
 
+//Definicja możliwych mutacji grafowego języka zapytań.
 export const Mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {

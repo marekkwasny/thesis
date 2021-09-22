@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+//Zapytanie pobierające dane użytkownika.
 export const meQuery = gql`
     {
         me {
@@ -10,6 +11,7 @@ export const meQuery = gql`
     }
 `;
 
+//Zapytanie pobierającę listę użytkowników.
 export const usersQuery = gql`
     {
         users {
@@ -20,6 +22,7 @@ export const usersQuery = gql`
     }
 `;
 
+//Mutacja tworząca użytkownika.
 export const createUserMutation = gql`
     mutation createUser($name: String!, $email: String!, $password: String!) {
         createUser(user: { name: $name, email: $email, password: $password }) {
@@ -30,6 +33,7 @@ export const createUserMutation = gql`
     }
 `;
 
+//Mutacja logująca użytkownika.
 export const loginUserMutation = gql`
     mutation loginUser($email: String!, $password: String!) {
         loginUser(email: $email, password: $password) {
@@ -43,12 +47,14 @@ export const loginUserMutation = gql`
     }
 `;
 
+//Mutacja do wylogowania użytkownika z konkretnej sesji.
 export const logoutUserMutation = gql`
     mutation {
         logoutUser
     }
 `;
 
+//Mutacja do wylogowania użytkownika z wszystkich sesji.
 export const fullLogoutUserMutation = gql`
     mutation {
         fullLogoutUser

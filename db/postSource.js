@@ -1,10 +1,12 @@
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja zapisująca wydarzenia dla drugiego kroku CQRS.
 export async function logPostEvent(pool, event) {
     const postSource = new PostSourceRepository(pool);
     return await postSource.log(event);
 }
 
+//Funkcja zwracająca wydarzenia dla drugiego kroku CQRS.
 export async function fetchPostLogs(pool) {
     const postSource = new PostSourceRepository(pool);
     return await postSource.fetchLogs();

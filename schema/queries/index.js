@@ -2,6 +2,7 @@ import { GraphQLObjectType } from 'graphql';
 import { Posts, Posts1, Posts2, Posts3 } from './post.js';
 import { Users, Me } from './user.js';
 
+//Definicja możliwych zapytań grafowego języka zapytań.
 export const Query = new GraphQLObjectType({
     name: 'Query',
     fields: {

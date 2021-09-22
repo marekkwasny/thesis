@@ -2,7 +2,15 @@ import { useMutation } from '@apollo/react-hooks';
 import React, { useState } from 'react';
 import { createUserMutation } from '../graphql/user';
 import { isEmailValid } from '../utils/email';
-import { Avatar, Container, Grid, makeStyles, TextField, Typography, Button } from '@material-ui/core';
+import {
+    Avatar,
+    Container,
+    Grid,
+    makeStyles,
+    TextField,
+    Typography,
+    Button,
+} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+//Komponent definiujący widok rejestracji.
 export function Register({ history }) {
     const classes = useStyles();
     const [name, setName] = useState('');
@@ -107,13 +116,25 @@ export function Register({ history }) {
                             />
                         </Grid>
                     </Grid>
-                    <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
                         Sign Up
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link to={'/login'} variant="body2" style={{ textDecoration: 'none' }}>
-                                <Typography color="textSecondary">Already have an account? Sign in</Typography>
+                            <Link
+                                to={'/login'}
+                                variant="body2"
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <Typography color="textSecondary">
+                                    Already have an account? Sign in
+                                </Typography>
                             </Link>
                         </Grid>
                     </Grid>

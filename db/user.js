@@ -1,16 +1,19 @@
 import { hash } from 'bcrypt';
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja tworząca nowego użytkownika.
 export async function createUser(pool, name, email, password) {
     const users = new UserRepository(pool);
     return await users.create(name, email, password);
 }
 
+//Funkcja zwracająca użytkownika spełniającego określone kryterium.
 export async function findUser(pool, key, value) {
     const users = new UserRepository(pool);
     return await users.find(key, value);
 }
 
+//Funkcja zwracająca wszystkich użytkowników.
 export async function getUsers(pool) {
     const users = new UserRepository(pool);
     return await users.retrieve();
@@ -31,7 +34,9 @@ class UserRepository {
 
             const query = {
                 name: 'create-user',
-                text: 'INSERT INTO users(name, email, password)' + 'VALUES ($1, $2, $3) RETURNING *',
+                text:
+                    'INSERT INTO users(name, email, password)' +
+                    'VALUES ($1, $2, $3) RETURNING *',
                 values: [name, email, password],
             };
 

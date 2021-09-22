@@ -4,6 +4,7 @@ import { client } from '..';
 import { meQuery } from '../graphql/user';
 import { useQuery } from '@apollo/react-hooks';
 
+//Komponent definiujący publiczne ścieżki.
 export const PublicRoute = ({ component: Component, ...rest }) => {
     const cache = client.readQuery({ query: meQuery });
 

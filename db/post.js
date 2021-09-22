@@ -1,10 +1,12 @@
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja zapisująca nową treść w warstwie danych.
 export async function createNewPost(pool, userId, content) {
     const posts = new PostRepository(pool);
     return await posts.create(userId, content);
 }
 
+//Funkcja zwracająca treści z warstwy danych.
 export async function fetchPosts(pool, userId, limit, cursor) {
     const posts = new PostRepository(pool);
     return await posts.fetch(userId, limit, cursor);

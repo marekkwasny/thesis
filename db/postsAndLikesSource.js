@@ -1,10 +1,12 @@
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja zapisująca wydarzenia dla trzeciego kroku CQRS.
 export async function logPostLikesEvent(pool, event) {
     const postLikeSource = new PostLikeSourceRepository(pool);
     return await postLikeSource.log(event);
 }
 
+//Funkcja zwracająca wydarzenia dla trzeciego kroku CQRS.
 export async function fetchPostLikesLogs(pool) {
     const postLikeSource = new PostLikeSourceRepository(pool);
     return await postLikeSource.fetchLogs();

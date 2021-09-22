@@ -1,10 +1,12 @@
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja zwracająca wersję tokenu odświeżania dla danego użytkownika.
 export async function getTokenVersion(pool, userId) {
     const tokens = new TokenRepository(pool);
     return await tokens.find(userId);
 }
 
+//Funkcja zmieniająca oczekiwany stan tokenu odświeżania poprzez podniesienie jego wersji.
 export async function revokeToken(pool, userId) {
     const tokens = new TokenRepository(pool);
     await tokens.increment(userId);

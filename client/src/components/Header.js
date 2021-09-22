@@ -29,6 +29,7 @@ function HideOnScroll(props) {
     );
 }
 
+//Komponent definiujący nagłówek.
 export function Header(props) {
     const classes = useStyles();
     const history = useHistory();

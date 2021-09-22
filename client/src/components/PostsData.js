@@ -3,6 +3,7 @@ import { Waypoint } from 'react-waypoint';
 import { Post } from './Post';
 import { List } from '@material-ui/core';
 
+//Komponent wczytujący posty dla widoku Home.
 export const PostsData = ({ user, loading, data, fetchMore }) => {
     if (loading) return <div>...</div>;
 

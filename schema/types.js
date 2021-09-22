@@ -9,6 +9,7 @@ import {
     GraphQLBoolean,
 } from 'graphql';
 
+//Typ obiektu przyjmowanego jako argument dla mutacji tworzącej nowego użytkownika.
 export const UserInputType = new GraphQLInputObjectType({
     name: 'UserInput',
     fields: {
@@ -18,6 +19,7 @@ export const UserInputType = new GraphQLInputObjectType({
     },
 });
 
+//Typ zwracanej odpowiedzi dla mutacji tworzącej nowego użytkownika.
 export const UserType = new GraphQLObjectType({
     name: 'User',
     fields: {
@@ -27,6 +29,7 @@ export const UserType = new GraphQLObjectType({
     },
 });
 
+//Typ definiujący autora treści.
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
     fields: {
@@ -35,6 +38,7 @@ const AuthorType = new GraphQLObjectType({
     },
 });
 
+//Typ zwracanej odpowiedzi dla mutacji logowania.
 export const LoginResponseType = new GraphQLObjectType({
     name: 'Login',
     fields: {
@@ -43,6 +47,7 @@ export const LoginResponseType = new GraphQLObjectType({
     },
 });
 
+//Typ zwracanej odpowiedzi dla mutacji wylogowania.
 export const LogoutResponseType = new GraphQLObjectType({
     name: 'Logout',
     fields: {
@@ -50,6 +55,7 @@ export const LogoutResponseType = new GraphQLObjectType({
     },
 });
 
+//Typ zwracanej odpowiedzi mutacji tworzenia nowych treści dla widoku Home oraz CQRS 1.
 export const CreatePostType = new GraphQLObjectType({
     name: 'CreatePost',
     fields: {
@@ -71,6 +77,7 @@ const PostsListType = new GraphQLObjectType({
     },
 });
 
+//Typ odpowiedzi dla zapytania zwracającego listę treści.
 export const PostsType = new GraphQLObjectType({
     name: 'PostsType',
     fields: {

@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { createPostOneQuery } from '../../graphql/post';
 import { TextField, Button, Container } from '@material-ui/core';
 
+//Komponent do tworzeniu postów dla widoku CQRS 1.
 export function PostCreatorOne({ user, refetch }) {
     const [createPost] = useMutation(createPostOneQuery);
     const [content, setContent] = useState('');
@@ -39,7 +40,9 @@ export function PostCreatorOne({ user, refetch }) {
                         value={content}
                         style={{ textAlign: 'left' }}
                         onChange={(e) => {
-                            submit.current.style.visibility = !e.target.value ? 'hidden' : 'visible';
+                            submit.current.style.visibility = !e.target.value
+                                ? 'hidden'
+                                : 'visible';
                             setContent(e.target.value);
                         }}
                     />

@@ -2,8 +2,13 @@ import { GraphQLBoolean, GraphQLString } from 'graphql';
 import { compare } from 'bcrypt';
 import { UserInputType, UserType, LoginResponseType } from '../types.js';
 import * as db from '../../db/index.js';
-import { createRefreshToken, createAccessToken, sendRefreshToken } from '../../utils/tokens.js';
+import {
+    createRefreshToken,
+    createAccessToken,
+    sendRefreshToken,
+} from '../../utils/tokens.js';
 
+//Mutacja tworzenia nowego użytkownika.
 export const createUser = {
     type: UserType,
     args: {
@@ -15,6 +20,7 @@ export const createUser = {
     },
 };
 
+//Mutacja logowania użytkownika.
 export const loginUser = {
     type: LoginResponseType,
     args: {
@@ -22,7 +28,11 @@ export const loginUser = {
         password: { type: GraphQLString },
     },
     async resolve(_, args, ctx) {
-        const { id, email, name, password } = await db.findUser(ctx.pool, 'email', args.email);
+        const { id, email, name, password } = await db.findUser(
+            ctx.pool,
+            'email',
+            args.email
+        );
 
         if (!email || !id) {
             return null;
@@ -44,6 +54,7 @@ export const loginUser = {
     },
 };
 
+//Mutacja zakończenia konkretnej sesji użytkownika.
 export const logoutUser = {
     type: GraphQLBoolean,
     async resolve(_, __, ctx) {
@@ -53,6 +64,7 @@ export const logoutUser = {
     },
 };
 
+//Mutacja zakończenia wszystkich sesji użytkownika.
 export const logoutUserFromAllSessions = {
     type: GraphQLBoolean,
     async resolve(_, __, ctx) {

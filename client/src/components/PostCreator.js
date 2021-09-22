@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { createPostQuery } from '../graphql/post';
 import { TextField, Button, Container } from '@material-ui/core';
 
+//Komponent do tworzeniu postów dla widoku Home.
 export function PostCreator({ user, refetch }) {
     const [createPost] = useMutation(createPostQuery);
     const [content, setContent] = useState('');
@@ -39,7 +40,9 @@ export function PostCreator({ user, refetch }) {
                         value={content}
                         style={{ textAlign: 'left' }}
                         onChange={(e) => {
-                            submit.current.style.visibility = !e.target.value ? 'hidden' : 'visible';
+                            submit.current.style.visibility = !e.target.value
+                                ? 'hidden'
+                                : 'visible';
                             setContent(e.target.value);
                         }}
                     />

@@ -5,6 +5,7 @@ import { CommandService1 } from '../../controllers/first/command.js';
 import { CommandService2 } from '../../controllers/second/command.js';
 import { CommandService3 } from '../../controllers/third/command.js';
 
+//Mutacja tworzenia nowej treści.
 export const createPost = {
     type: CreatePostType,
     args: {
@@ -20,6 +21,7 @@ export const createPost = {
     },
 };
 
+//Mutacja tworzenia nowej treści dla pierwszego kroku CQRS.
 export const createPost1 = {
     type: CreatePostType,
     args: {
@@ -36,6 +38,7 @@ export const createPost1 = {
     },
 };
 
+//Mutacja tworzenia nowej treści dla drugiego kroku CQRS.
 export const createPost2 = {
     type: GraphQLBoolean,
     args: {
@@ -52,6 +55,7 @@ export const createPost2 = {
     },
 };
 
+//Mutacja tworzenia nowej treści dla trzeciego kroku CQRS.
 export const createPost3 = {
     type: GraphQLBoolean,
     args: {

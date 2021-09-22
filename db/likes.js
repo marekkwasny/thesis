@@ -1,10 +1,12 @@
 import { logToConsole } from '../utils/logging.js';
 
+//Funkcja zapisująca polubienie w warstwie danych.
 export async function likePost(pool, userId, postId) {
     const likes = new LikeRepository(pool);
     return await likes.like(userId, postId);
 }
 
+//Funkcja wycofująca polubienie w warstwie danych.
 export async function unlikePost(pool, userId, postId) {
     const likes = new LikeRepository(pool);
     return await likes.unlike(userId, postId);

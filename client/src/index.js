@@ -6,6 +6,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { ApolloClient, InMemoryCache, from } from '@apollo/client';
 import { authLink, httpLink, tokenRefreshLink } from './utils/links';
 
+//Konfiguracja klienta Apollo.
 export const client = new ApolloClient({
     cache: new InMemoryCache({
         typePolicies: {

@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { client } from '..';
 import { meQuery } from '../graphql/user';
 
+//Komponent definiujący ścieżki dostępne wyłącznie dla użytkowników.
 export const UserRoute = ({ component: Component, ...rest }) => {
     const cache = client.readQuery({ query: meQuery });
 

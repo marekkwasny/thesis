@@ -4,6 +4,7 @@ import { CommandService2 } from '../../controllers/second/command.js';
 import { CommandService3 } from '../../controllers/third/command.js';
 import * as db from '../../db/index.js';
 
+//Mutacja polubienia treści.
 export const likePost = {
     type: GraphQLBoolean,
     args: {
@@ -19,6 +20,7 @@ export const likePost = {
     },
 };
 
+//Mutacja wycofania polubienia treści.
 export const unlikePost = {
     type: GraphQLBoolean,
     args: {
@@ -34,6 +36,7 @@ export const unlikePost = {
     },
 };
 
+//Mutacja polubienia treści dla pierwszego kroku CQRS.
 export const likePost1 = {
     type: GraphQLBoolean,
     args: {
@@ -50,6 +53,7 @@ export const likePost1 = {
     },
 };
 
+//Mutacja wycofania polubienia treści dla pierwszego kroku CQRS.
 export const unlikePost1 = {
     type: GraphQLBoolean,
     args: {
@@ -66,6 +70,7 @@ export const unlikePost1 = {
     },
 };
 
+//Mutacja polubienia treści dla drugiego kroku CQRS.
 export const likePost2 = {
     type: GraphQLBoolean,
     args: {
@@ -82,6 +87,7 @@ export const likePost2 = {
     },
 };
 
+//Mutacja wycofania polubienia treści dla drugiego kroku CQRS.
 export const unlikePost2 = {
     type: GraphQLBoolean,
     args: {
@@ -98,6 +104,7 @@ export const unlikePost2 = {
     },
 };
 
+//Mutacja polubienia treści dla trzeciego kroku CQRS.
 export const likePost3 = {
     type: GraphQLBoolean,
     args: {
@@ -114,6 +121,7 @@ export const likePost3 = {
     },
 };
 
+//Mutacja wycofania polubienia treści dla trzeciego kroku CQRS.
 export const unlikePost3 = {
     type: GraphQLBoolean,
     args: {

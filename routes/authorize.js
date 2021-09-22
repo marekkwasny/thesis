@@ -1,9 +1,14 @@
 import jwt from 'jsonwebtoken';
 import * as db from '../db/index.js';
-import { createAccessToken, createRefreshToken, sendRefreshToken } from '../utils/tokens.js';
+import {
+    createAccessToken,
+    createRefreshToken,
+    sendRefreshToken,
+} from '../utils/tokens.js';
 
 const { verify } = jwt;
 
+//Funkcja wystawiająca nowe tokeny na podstawie statusu walidacji RefreshTokenu.
 export async function grantToken(pool, req, res) {
     const token = req.cookies.REFRESH_TOKEN;
 

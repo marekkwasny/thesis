@@ -1,12 +1,13 @@
-import { useQuery } from "@apollo/client";
-import React from "react";
-import { client } from "../..";
-import { PostCreatorThree } from "../../components/cqrs/PostCreator3";
-import { PostsDataThree } from "../../components/cqrs/PostsData3";
-import { Header } from "../../components/Header";
-import { postsThreeQuery } from "../../graphql/post";
-import { meQuery } from "../../graphql/user";
+import { useQuery } from '@apollo/client';
+import React from 'react';
+import { client } from '../..';
+import { PostCreatorThree } from '../../components/cqrs/PostCreator3';
+import { PostsDataThree } from '../../components/cqrs/PostsData3';
+import { Header } from '../../components/Header';
+import { postsThreeQuery } from '../../graphql/post';
+import { meQuery } from '../../graphql/user';
 
+//Komponent definiujący widok CQRS 3.
 export function HomeThree() {
     let user = null;
     const cache = client.readQuery({ query: meQuery });
@@ -29,7 +30,7 @@ export function HomeThree() {
             limit: 10,
             cursor: 0,
         },
-        fetchPolicy: "network-only",
+        fetchPolicy: 'network-only',
     });
 
     return (
